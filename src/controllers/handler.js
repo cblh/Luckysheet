@@ -146,6 +146,7 @@ export default function luckysheetHandler() {
     $("#luckysheet-grid-window-1").mousewheel(function(event, delta) {
         let scrollLeft = $("#luckysheet-scrollbar-x").scrollLeft(),
             scrollTop = $("#luckysheet-scrollbar-y").scrollTop();
+        scrollTop = Math.ceil(scrollTop)
         let visibledatacolumn_c = Store.visibledatacolumn,
             visibledatarow_c = Store.visibledatarow;
 
