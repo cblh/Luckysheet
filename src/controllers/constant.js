@@ -1267,7 +1267,13 @@ const luckysheetlodingHTML = function(target, coverConfig) {
         };
     }
     const imageHtml = luckysheetloadingImage(config);
-    const id = "luckysheet-loading-" + uuid.v4();
+    function S4() {
+      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    }
+    function uuid(prefix = '') {
+      return prefix + S4() + [S4(), S4(), S4(), S4(), S4()].join('-') + S4() + S4();
+    }
+    const id = "luckysheet-loading-" + uuid();
     const loadingHtml = `
         <div class="luckysheet-loading-content"> 
             <div class="${config.imageClass} luckysheet-loading-image">
